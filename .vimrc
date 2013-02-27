@@ -29,36 +29,37 @@ set timeoutlen=250      " Time to wait after ESC (default causes an annoying del
 "
 " COLORS 
 "
-set t_Co=256            " Set # terminal colors 
+set t_Co=256              " Set # terminal colors 
 " colorscheme bclear      " Mellower black background, subdued
 " colorscheme borland     " bright blue background!
 " colorscheme jellybeans  " lo-contrast, dim gray-on-black
 " colorscheme leo         " high-contrast theme via http://www.vim.org/scripts/script.php?script_id=2156
-" colorscheme railscasts    " sharp black background for terminal vim
+" colorscheme railscasts  " sharp black background for terminal vim
 " colorscheme morning     " for gVim, colors on white 
 set background=dark
 colorscheme solarized
 
+" Formatting
+set tabstop=2                   " Tabs are 2 spaces
+set backspace=indent,eol,start  " equivalent to next line:
+" set bs=2                      " Backspace over everything in insert mode
+set shiftwidth=2                " Tabs under smart indent
+set autoindent                  " Indent per last line
+set smarttab                    " Tab in indent smartwidth spaces
+set expandtab                   " Tab in Insert mode to spaces
+set nocp incsearch              " vi-incompatible, incremental search display
 " Formatting (some of these are for coding in C and C++)
-set ts=2  " Tabs are 2 spaces
-set backspace=indent,eol,start " equivalent to next line:
-" set bs=2  " Backspace over everything in insert mode
-set shiftwidth=2  " Tabs under smart indent
-set nocp incsearch
 set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
+set cindent
 " Auto format comments, text using textwidth, 'gq' to reformat, add comment
 " leader following <Enter> in Insert mode
 set formatoptions=tcqr
-set cindent
-set autoindent
-set smarttab
-set expandtab
 
 " Visual
 set showmatch     " Show matching brackets.
-set mat=5         " Bracket blinking.
-set list
+set matchtime=5   " Bracket blinking for 10ths of a second
+set list          " Displays tab as ^I and eol as $
 " Show $ at end of line and trailing space as  
 "set lcs=tab:▸◦,eol:$,trail:~,extends:>,precedes:<
 set listchars=tab:»·,eol:¬,trail:~,extends:>,precedes:<
