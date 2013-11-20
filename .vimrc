@@ -1,9 +1,52 @@
-filetype plugin on  " Automatically detect file types.
-syntax enable       " and show them in color if possible.
-set nocompatible    " We don't want vi compatibility.
+set nocompatible               " be iMproved
+filetype off                   " required!
 
-" Add recently accessed projects menu (project plugin)
-set viminfo^=!
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'vim-ruby/vim-ruby.git'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-rake.git'
+Bundle 'tpope/vim-unimpaired.git'
+Bundle 'tpope/vim-bundler.git'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
+Bundle 'gorodinskiy/vim-coloresque.git'
+
+inoremap <M-o> <Esc>o
+inoremap <C-j> <Down>
+let g:ragtag_global_maps = 1
+
+" vim-scripts repos
+" non github repos
+
+" ...
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+syntax enable         " and show them in color if possible.
+runtime macros/matchit.vim  " enhanced keyword matching on %
+set viminfo^=!        " Add recently accessed projects menu (project plugin)
 
 " Minibuffer Explorer Settings
 let g:miniBufExplMapWindowNavVim = 1
@@ -27,6 +70,7 @@ set nu                  " Line numbers on
 set nowrap              " Line wrapping off
 set timeoutlen=250      " Time to wait after ESC (default causes an annoying delay)
 "
+set path=,.             " Search path for gf to include cwd and current file's dir.
 " COLORS 
 "
 set t_Co=256              " Set # terminal colors 
@@ -36,6 +80,7 @@ set t_Co=256              " Set # terminal colors
 " colorscheme leo         " high-contrast theme via http://www.vim.org/scripts/script.php?script_id=2156
 " colorscheme railscasts  " sharp black background for terminal vim
 " colorscheme morning     " for gVim, colors on white 
+set background=light
 set background=dark
 colorscheme solarized
 
@@ -57,15 +102,15 @@ set cindent
 set formatoptions=tcqr
 
 " Visual
-set showmatch     " Show matching brackets.
-set matchtime=5   " Bracket blinking for 10ths of a second
-set list          " Displays tab as ^I and eol as $
+set showmatch                 " Show matching brackets.
+set matchtime=5               " Bracket blinking for 10ths of a second
+set list                      " Displays tab as ^I and eol as $
 " Show $ at end of line and trailing space as  
 "set lcs=tab:▸◦,eol:$,trail:~,extends:>,precedes:<
 set listchars=tab:»·,eol:¬,trail:~,extends:>,precedes:<
-set novisualbell  " No blinking .
-set noerrorbells  " No noise.
-set laststatus=2  " Always show status line.
+set novisualbell              " No blinking .
+set noerrorbells              " No noise.
+set laststatus=2              " Always show status line.
 
 " gvim specific
 set mousehide  " Hide mouse after chars typed
